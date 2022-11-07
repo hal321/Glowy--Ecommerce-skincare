@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head.ejs')%>
+  <body>
+    <nav><%- include('../../partials/nav.ejs')%></nav>
+    <div class="jumbo">
+      <form action="/products/new" method="GET">
+        <button class="admin" type="submit">New Product</button>
+      </form>
+      <form action="/adminUsers/new" method="GET">
+        <button class="admin" type="submit">New User</button>
+      </form>
+      <form action="/adminUsers" method="GET">
+        <button class="admin" type="submit">See Users</button>
+      </form>
+    </div>
+    <%- include('../../partials/footer.ejs')%>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head.ejs')%>
+  <body>
+    <nav><%- include('../../partials/nav.ejs')%></nav>
+   
+    
+    <div>
+      <div class="small-container">
+        <h1>All Skin Care Products   <div>
+          <%if(role==="admin"){%>
+    
+            <form action="/products/admin" method="GET">
+              <button class="admin">Admin</button> 
+            </form>
+            <%}%>
+        </div></h1>
+      <div class="row1">
+        <div class="col">
+     
+        
+
+          <% products.forEach( function (product) {%>
+          <div class="card1">
+            <h5 class="card-text">
+              <%=product.brand%>: <%= product.category %>
+            </h5>
+            <a href="/products/<%=product.id%>">
+              <img
+                src="<%= product.img %>"
+                alt="An image of <%= product.category %>"
+            /></a>
+            <p>Price: MYR<%=product.price %></p>
+            <%if(role==="Guest"){%>
+              <div style="display: flex; align-items: center; justify-content: center;">
+                <a
+                  href="/products/cart/<%=product.category  %>/<%= product.brand  %>/<%=product.price%> "
+                  ><button class="addCart" >Add to Cart</button></a> /
+
+  <a href="/products/cart"> <button class="viewCart">Basket 🛒</button></a>
+              </div>
+              <%}%>
+        
+          </div>
+          <%})%>
+         
+        </div>
+        
+      </div>
+    </div>
+    <%- include('../../partials/footer.ejs')%>
+  </body>
+  
+</div>
+</html>

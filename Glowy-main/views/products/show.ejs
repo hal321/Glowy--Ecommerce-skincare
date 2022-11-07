@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head.ejs')%>
+  <body>
+    <nav><%- include('../../partials/nav.ejs')%></nav>
+
+    <div class="jumbo">
+      <h2><%=product.brand%></h2>
+      <h4><%=product.skinType%> Skin Type</h4>
+      <h4>You can use it at <%=product.dayNight%></h4>
+      <h3><%=product.category%></h3>
+      <img src="<%= product.img %>" alt="An image of <%= product.category %>" />
+      <p><%=product.description%></p>
+      <% if (product.qty <= 0) { %>
+      <h4>OUT OF STOCK</h4>
+      <% } else { %>
+      <h6>Only <%= product.qty %> remaining</h6>
+      
+      <h4>Price: MYR<%=product.price %></h4>
+      <% } %> <%if(role==="admin"){%>
+      <h1>Admin Actions</h1>
+      <a href="/products/<%=product.id%>/edit"
+        ><button class="admin" type="button" name="button">Edit</button></a
+      >
+      <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
+        <button class="admin">DELETE</button>
+      </form>
+      <%}%>
+    </div>
+  
+    <%- include('../../partials/footer.ejs')%>
+  </body>
+</html>

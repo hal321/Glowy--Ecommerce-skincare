@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../partials/head.ejs')%>
+
+
+  <body>
+    <nav><%- include('../../partials/nav.ejs')%></nav>
+    <div class="small-container">
+      <h1>Your Beauty Basket</h1>
+      <div id="total">
+      <div class="row1">
+        <div class="col">
+      <div>
+        <%let sum=0%>
+        <%if(cart){%>
+        </div>
+          <%for(let i=0;i<cart.length;i++){%>
+            <div class="card2">
+            <h6 class="card-text"><%=cart[i].category%></h6>
+            <h6 class="card-text"><%=cart[i].brand%></h6>
+            <h6 class="card-text">MYR<%=cart[i].price%></h6>
+
+            <form action="/products/cart/<%=i%>?_method=DELETE" method="POST">
+              <button  class="btn btn-danger" type="submit">Remove</button> 
+            </form>
+            </div>
+        
+            <% sum += parseInt(cart[i].price)%>
+            <%}%>
+            <%}%>
+          </div>
+        </div>
+      </div>
+        </div>
+          </div>
+      
+    <!-- <div id="total"> -->
+     
+        <form id="total" action="/products/cart" method="POST">
+        <button class="total" disabled>Total: MYR:<%=sum%></button>
+       /
+          <button class="checkoutBtn" type="submit">Checkout</button> 
+        </form>
+      
+      <!-- </div> -->
+    </div>
+   
+  </div>
+     
+  </div>
+  <%- include('../../partials/footer.ejs')%>
+  </body>
+</html>

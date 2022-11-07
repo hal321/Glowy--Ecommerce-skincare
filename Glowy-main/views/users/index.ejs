@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head.ejs')%>
+  <body>
+    <nav><%- include('../../partials/nav.ejs')%></nav>
+    <h1>All page Users</h1>
+    <div class="jumbo">
+    <div class="container-fluid d-flex justify-content-center align-items-center ">
+    <% users.forEach( function (user) {%>
+        <div class="card" style="width: 20rem;">
+            <ul class="list-group">
+        
+          <li class="list-group-item"><%=user.username%>: <%=user.role%> 
+            <form style="display:inline" action="/adminUsers/<%=user.id%>?_method=DELETE" method="POST">
+                <input class="adminBtn" type="submit" value="Delete" />
+              </form >
+              <a class="adminBtn" href="/adminUsers/<%=user.id%>/edit">Edit</a></li>
+        </ul>
+
+     
+
+        <%})%> <br />
+        <br />
+      </div>
+      <a class="backToAdmin" href="/products/admin">Back to Admin</a>
+    </div>
+  </div>
+</div>
+<%- include('../../partials/footer.ejs')%>
+
+  </body>
+</html>

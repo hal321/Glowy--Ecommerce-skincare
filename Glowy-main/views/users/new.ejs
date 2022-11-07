@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head.ejs')%>
+  <body>
+    <nav><%- include('../../partials/nav.ejs')%></nav>
+    <h1>Hello beauty</h1>
+    <div class="jumbo">
+      <form action="/users" method="POST">
+        <input type="text" name="username" placeholder="User Name" /> <br />
+        <br />
+        <input type="password" name="password" placeholder="password" /> <br />
+        <br />
+
+        <button class="admin" type="submit">Register</button>
+      </form>
+    </div>
+    <%- include('../../partials/footer.ejs')%>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head.ejs')%>
+  <body>
+    <nav><%- include('../../partials/nav.ejs')%></nav>
+    <div class="wrapper">
+      <div class="jumbo">
+        <h2>Add a new product</h2>
+        <form action="/products" method="POST">
+          <label for="category">Category: </label>
+          <input type="text" name="category" id="category" /> <br />
+          <br />
+          <label for="skinType">Skin Type: </label>
+          <input type="text" name="skinType" id="skinType" /> <br />
+          <br />
+          <label for="dayNight">Day/Night: </label>
+          <input type="text" name="dayNight" id="dayNight" /> <br />
+          <br />
+          <label for="brand">Brand: </label>
+          <input type="text" name="brand" id="brand" /> <br />
+          <br />
+          <label for="description">Description: </label>
+          <input type="textarea" name="description" id="description" /> <br />
+          <br />
+          <label for="img">Image: </label>
+          <input type="text" name="img" id="img" /> <br />
+          <br />
+          <label for="price">Price: </label>
+          <input
+            type="number"
+            name="price"
+            min="5"
+            step=".01"
+            value="0"
+            id="price"
+          />
+          <br />
+          <br />
+          <label for="qty">Quantity: </label>
+          <input type="number" name="qty" min="0" value="0" id="qty" /><br />
+          <br />
+          <button class="admin" type="submit" name="submit">Add Me</button>
+        </form>
+        <a class="backToAdmin" href="/products/admin">Back to Admin</a>
+      </div>
+    </div>
+    <%- include('../../partials/footer.ejs')%>
+  </body>
+</html>
