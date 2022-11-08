@@ -20,6 +20,9 @@ There are three main schemas in this project:
 - GlowySchema: this contains all the products details added by the admin.
 - UserSchema:this contains all the users signed up to the page
 
+#Link to the Site:
+https://rocky-crag-94743.herokuapp.com/
+
 
 
 
